@@ -1,9 +1,13 @@
 import { Theme } from 'vitepress';
-
-// export { default as VTLayout } from './components/VTLayout.vue';
-import PageHome from './pages/PageHome.vue'
+import PageHome from './pages/PageHome.vue';
 import VPApp from './components/VPApp.vue';
 import VPNotFound from './components/VPNotFound.vue';
+
+import 'github-markdown-css';
+import './styles/index.css';
+
+// export { default as baseConfig } from './config/baseConfig';
+// export { default as themeConfig } from './config/themeConfig';
 
 const VPTheme: Theme = {
     Layout: VPApp,

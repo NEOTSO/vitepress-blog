@@ -1,7 +1,5 @@
 ---
-page: true
-test: 333
-layout: doc
+title: aaaa.md
 ---
 
 # hi, there.

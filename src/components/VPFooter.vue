@@ -1,6 +1,5 @@
 <script setup>
-// import config from "@/site.config";
-const config = { icp: 123 }
+const config = { icp: 123 };
 </script>
 
 <template>

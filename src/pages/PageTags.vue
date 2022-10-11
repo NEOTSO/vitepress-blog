@@ -2,8 +2,8 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 import { ref, computed } from "vue";
-import ArticleItem from "../components/ArticleItem.vue";
-import BasePagination from "../components/BasePagination.vue";
+import VPPostItem from "../components/VPPostItem.vue";
+import VPPagination from "../components/VPPagination.vue";
 
 const { theme } = useData();
 const { pageSize, posts } = theme.value;
@@ -52,7 +52,7 @@ const filterPosts = computed(() =>
         </div>
 
         <div class="mt-5">
-            <ArticleItem
+            <VPPostItem
                 v-for="item in filterPosts"
                 :key="item._path"
                 :path="item.regularPath"

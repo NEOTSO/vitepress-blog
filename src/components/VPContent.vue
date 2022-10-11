@@ -1,19 +1,16 @@
 <script lang="ts" setup>
 import { useData, useRoute } from 'vitepress';
 import VPContentPage from './VPContentPage.vue';
-// import VPContentDoc from './VPContentDoc.vue';
-
+import VPContentDoc from './VPContentDoc.vue';
 const route = useRoute();
 const { frontmatter } = useData();
-console.log('frontmatter222');
 console.log(frontmatter);
-console.log(frontmatter.value);
 </script>
 
 <template>
-    <h2>VPContent</h2>
     <div id="VPContent" class="VPContent">
-        <VPContentPage v-if="!!frontmatter.page"></VPContentPage>
+        <VPContentPage v-if="frontmatter.layout === 'page'"></VPContentPage>
+        <VPContentDoc v-else></VPContentDoc>
         <!-- <VPContentDoc v-else>
             <template #content-top><slot name="content-top" /></template>
             <template #content-bottom><slot name="content-bottom" /></template>
