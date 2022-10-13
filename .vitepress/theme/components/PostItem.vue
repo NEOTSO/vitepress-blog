@@ -1,24 +1,24 @@
 <script setup lang="ts">
 interface IProps {
-    path: string;
+    href: string;
     title: string;
-    description: string;
+    excerpt: string;
 }
 
 defineProps<IProps>();
 </script>
 
 <template>
-    <div class="article-item">
-        <a :href="path">
+    <div class="post-item">
+        <a :href="href">
             <h2 class="title">{{ title }}</h2>
         </a>
-        <p v-if="description" class="excert">{{ description }}</p>
+        <p v-if="excerpt" class="excert" v-html="excerpt"></p>
     </div>
 </template>
 
 <style scoped>
-.article-item {
+.post-item {
     @apply py-[10px] hover:underline;
 }
 

@@ -10,13 +10,13 @@ const emit = defineEmits<{
     (e: "onChange", page: number): void;
 }>();
 
-const goPrev = () => {
+const goPrev = (e: MouseEvent) => {
     if (props.current !== 1) {
         emit("onChange", props.current - 1);
     }
 };
 
-const goNext = () => {
+const goNext = (e: MouseEvent) => {
     if (props.current !== props.total) {
         emit("onChange", props.current + 1);
     }
@@ -26,8 +26,8 @@ const goNext = () => {
 <template>
     <ul class="pagination">
         <li
-            :class="['pagination-item', { 'is-disabled': props.current === 1 }]"
             @click="goPrev"
+            :class="['pagination-item', { 'is-disabled': props.current === 1 }]"
         >
             Prev
         </li>
@@ -40,7 +40,10 @@ const goNext = () => {
             {{ i }}
         </li>
         <li
-            :class="['pagination-item', { 'is-disabled': props.current === props.total }]"
+            :class="[
+                'pagination-item',
+                { 'is-disabled': props.current === props.total },
+            ]"
             @click="goNext"
         >
             Next
@@ -58,7 +61,7 @@ const goNext = () => {
 }
 
 .pagination-item.is-disabled {
-    @apply text-gray-400;
+    @apply text-gray-400 cursor-default;
 }
 
 .pagination-item.is-active {
