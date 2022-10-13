@@ -3,6 +3,7 @@ import { computed } from "vue";
 import { useRoute } from "vitepress";
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
+import GoTop from "./components/GoTop.vue";
 import PageHome from "./PageHome.vue";
 import PageTags from "./PageTags.vue";
 import PageAbout from "./PageAbout.vue";
@@ -25,6 +26,7 @@ const isNotFound = computed(() => route.component === NotFound);
             <PageAbout v-else-if="isAbout" />
             <NotFound v-else-if="isNotFound" />
             <PagePost v-else />
+            <GoTop />
         </main>
         <TheFooter />
     </div>

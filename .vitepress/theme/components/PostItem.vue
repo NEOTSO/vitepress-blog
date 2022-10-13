@@ -13,7 +13,7 @@ defineProps<IProps>();
         <a :href="href">
             <h2 class="title">{{ title }}</h2>
         </a>
-        <p v-if="excerpt" class="excert" v-html="excerpt"></p>
+        <p v-if="excerpt" class="excerpt" v-html="excerpt"></p>
     </div>
 </template>
 
@@ -26,7 +26,7 @@ defineProps<IProps>();
     @apply leading-relaxed font-bold tracking-wide hover:underline;
 }
 
-.excert {
+.excerpt {
     @apply leading-normal;
 }
 </style>

@@ -4,6 +4,6 @@
 
 @layer utilities {
     .w-blog {
-        @apply max-w-[65ch] mx-auto;
+        @apply max-w-[800px] mx-auto px-5;
     }
 }

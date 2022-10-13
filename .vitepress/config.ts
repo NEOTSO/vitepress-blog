@@ -25,7 +25,8 @@ const config: UserConfig = {
             { text: "TAGS", link: "/tags" },
             { text: "ABOUT", link: "/about" },
         ],
-        pageSize: 8,
+        pageSize: 8, // pageSize in home page
+        excerpt: false, // hide excerpt in post page
     },
 };
 
