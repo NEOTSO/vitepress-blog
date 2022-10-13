@@ -1,11 +1,22 @@
 <script setup lang="ts">
-import { useData } from "vitepress";
+import { computed } from "vue";
+import { useData, useRoute } from "vitepress";
+import PostNav from "./components/PostNav.vue";
 // @ts-ignore
 import { data as posts } from "./posts.data";
-console.log(posts);
+
 const { frontmatter, theme } = useData();
 const { excerpt } = theme.value;
-console.log(excerpt);
+
+const route = useRoute();
+function findCurrentIndex() {
+    return posts.findIndex((p) => p.href === route.path);
+}
+
+const nextPost = computed(() => posts[findCurrentIndex() - 1]);
+const prevPost = computed(() => posts[findCurrentIndex() + 1]);
+console.log(nextPost.value);
+console.log(prevPost.value);
 </script>
 
 <template>
@@ -14,6 +25,7 @@ console.log(excerpt);
         <Content
             :class="['prose', 'max-w-none', { 'hide-excerpt': !excerpt }]"
         />
+        <PostNav class="mt-20" :prev="prevPost" :next="nextPost" />
     </article>
 </template>
 
