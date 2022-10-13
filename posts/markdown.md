@@ -1,6 +1,7 @@
 ---
 title: What is Markdown?
 date: 2022-10-13
+tags: markdown
 ---
 
 What is Markdown?[](#what-is-markdown)

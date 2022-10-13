@@ -15,6 +15,7 @@ export interface Post {
         time: number;
         string: string;
     };
+    tags?: string[];
     excerpt: string | undefined;
     data?: Record<string, any>;
 }
@@ -54,11 +55,13 @@ function getPost(file: string, postDir: string, asFeed = false): Post {
 
     const src = fs.readFileSync(fullePath, "utf-8");
     const { data, excerpt } = matter(src, { excerpt: true });
-
+    console.log(data);
+    console.log(excerpt);
     const post: Post = {
         title: data.title,
         href: `/posts/${file.replace(/\.md$/, ".html")}`,
         date: formatDate(data.date),
+        tags: data.tags?.split(', ') || [],
         excerpt: excerpt && md.render(excerpt),
     };
     if (asFeed) {
