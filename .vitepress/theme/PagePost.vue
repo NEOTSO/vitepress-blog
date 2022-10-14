@@ -9,14 +9,13 @@ const { frontmatter, theme } = useData();
 const { excerpt } = theme.value;
 
 const route = useRoute();
+
 function findCurrentIndex() {
-    return posts.findIndex((p) => p.href === route.path);
+    return posts.findIndex((p) => encodeURI(p.href) === route.path);
 }
 
-const nextPost = computed(() => posts[findCurrentIndex() - 1]);
-const prevPost = computed(() => posts[findCurrentIndex() + 1]);
-console.log(nextPost.value);
-console.log(prevPost.value);
+const prevPost = computed(() => posts[findCurrentIndex() - 1]);
+const nextPost = computed(() => posts[findCurrentIndex() + 1]);
 </script>
 
 <template>

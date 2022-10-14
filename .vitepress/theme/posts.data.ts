@@ -34,7 +34,8 @@ async function load(asFeed = false) {
     return fs
         .readdirSync(postDir)
         .filter((file) => {
-            console.log(file);
+            const ext = path.extname(file);
+            if (ext !== ".md") return false;
             const fullePath = path.join(postDir, file);
             const stat = fs.lstatSync(fullePath);
             return stat.isFile();
