@@ -33,6 +33,12 @@ async function load(asFeed = false) {
     md = md || (await createMarkdownRenderer(process.cwd()));
     return fs
         .readdirSync(postDir)
+        .filter((file) => {
+            console.log(file);
+            const fullePath = path.join(postDir, file);
+            const stat = fs.lstatSync(fullePath);
+            return stat.isFile();
+        })
         .map((file) => getPost(file, postDir, asFeed))
         .sort((a, b) => b.date.time - a.date.time);
 }
@@ -55,13 +61,11 @@ function getPost(file: string, postDir: string, asFeed = false): Post {
 
     const src = fs.readFileSync(fullePath, "utf-8");
     const { data, excerpt } = matter(src, { excerpt: true });
-    console.log(data);
-    console.log(excerpt);
     const post: Post = {
         title: data.title,
         href: `/posts/${file.replace(/\.md$/, ".html")}`,
         date: formatDate(data.date),
-        tags: data.tags?.split(', ') || [],
+        tags: data.tags?.split(", ") || [],
         excerpt: excerpt && md.render(excerpt),
     };
     if (asFeed) {
