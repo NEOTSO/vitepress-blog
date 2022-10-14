@@ -7,3 +7,12 @@
         @apply max-w-[800px] mx-auto px-5;
     }
 }
+
+div[class^="language-"] {
+    @apply relative;
+}
+
+div[class^="language-"] .copy,
+div[class^="language-"] .lang {
+    @apply absolute top-0 right-0;
+}
