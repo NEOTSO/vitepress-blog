@@ -61,7 +61,9 @@ function getPost(file: string, postDir: string, asFeed = false): Post {
     }
 
     const src = fs.readFileSync(fullePath, "utf-8");
-    const { data, excerpt } = matter(src, { excerpt: true });
+    const { data, excerpt } = matter(src, {
+        excerpt_separator: "<!-- more -->",
+    });
     const post: Post = {
         title: data.title,
         href: `/posts/${file.replace(/\.md$/, ".html")}`,
