@@ -10,7 +10,6 @@ const { pageSize } = theme.value;
 
 // @ts-ignore
 import { data as posts } from "./posts.data";
-console.log(posts);
 const rawTags = posts.map((item) => item?.tags).flat();
 
 function getCount(arr: string[]) {
@@ -36,30 +35,27 @@ const filterPosts = computed(() =>
 </script>
 
 <template>
-    <main class="w-blog">
-        <h1 class="font-oswald text-xl">TAGS</h1>
-        <div class="mt-5">
-            <ul>
-                <li
-                    :class="['tag', { 'is-active': currentTag === item }]"
-                    v-for="item in Object.keys(tagsObj)"
-                    @click="currentTag = item"
-                >
-                    #{{ item }} · {{ tagsObj[item] }}
-                </li>
-            </ul>
-        </div>
-
-        <div class="mt-5">
-            <PostItem
-                v-for="item in filterPosts"
-                :key="item.href"
-                :href="item.href"
-                :title="item.title"
-                :excerpt="item.excerpt"
-            />
-        </div>
-    </main>
+    <h1 class="font-oswald text-xl">TAGS</h1>
+    <div class="mt-5">
+        <ul>
+            <li
+                :class="['tag', { 'is-active': currentTag === item }]"
+                v-for="item in Object.keys(tagsObj)"
+                @click="currentTag = item"
+            >
+                #{{ item }} · {{ tagsObj[item] }}
+            </li>
+        </ul>
+    </div>
+    <div class="mt-5">
+        <PostItem
+            v-for="item in filterPosts"
+            :key="item.href"
+            :href="item.href"
+            :title="item.title"
+            :excerpt="item.excerpt"
+        />
+    </div>
 </template>
 
 <style scoped>

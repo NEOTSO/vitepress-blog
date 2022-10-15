@@ -1,6 +1,7 @@
 import type { UserConfig } from "vitepress";
 
 const config: UserConfig = {
+    titleTemplate: "TSO's Blog",
     head: [
         ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
         [

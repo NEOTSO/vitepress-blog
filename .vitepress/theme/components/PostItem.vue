@@ -19,7 +19,7 @@ defineProps<IProps>();
 
 <style scoped>
 .post-item {
-    @apply py-[10px] hover:underline;
+    @apply py-[10px];
 }
 
 .title {

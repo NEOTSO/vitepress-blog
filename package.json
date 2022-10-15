@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "vitepress",
         "build": "vitepress build",
-        "serve": "vitepress serve"
+        "serve": "vitepress build && vitepress serve"
     },
     "keywords": [],
     "author": "",

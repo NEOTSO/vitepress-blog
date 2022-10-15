@@ -72,7 +72,7 @@ function getPost(file: string, postDir: string, asFeed = false): Post {
         href: `/posts/${file.replace(/\.md$/, ".html")}`,
         date: formatDate(data.date),
         tags: data.tags?.split(", ") || [],
-        excerpt: excerpt && md.render(excerpt),
+        excerpt,
     };
     if (asFeed) {
         // only attach these when building the RSS feed to avoid bloating the
