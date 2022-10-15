@@ -20,6 +20,11 @@
         "vitepress": "1.0.0-alpha.19",
         "vue": "^3.2.40"
     },
+    "postcss": {
+        "plugins": {
+            "tailwindcss": {}
+        }
+    },
     "pnpm": {
         "peerDependencyRules": {
             "ignoreMissing": [
