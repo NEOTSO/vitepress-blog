@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <h1>PageAbout</h1>
+    <img class="max-w-full mx-auto" src="./assets/images/fighting.gif" alt="" />
 </template>
 
 <style scoped></style>

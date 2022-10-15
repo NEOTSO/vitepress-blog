@@ -1,4 +1,4 @@
-import "./styles/index.css";
+import "./assets/styles/index.css";
 
 import Layout from "./Layout.vue";
 import PageNotFound from "./PageNotFound.vue";

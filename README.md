@@ -3,7 +3,7 @@
 -   [x] /
 -   [x] /tags
 -   [x] prev/next post
--   [ ] /about
+-   [x] /about
 -   [ ] search
 
 ## Developing with Real Content
