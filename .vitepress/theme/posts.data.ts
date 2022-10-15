@@ -10,6 +10,7 @@ const postDir = path.resolve(dirname, "../../posts");
 
 export interface Post {
     title: string;
+    draft?: boolean;
     href: string;
     date: {
         time: number;
@@ -41,6 +42,7 @@ async function load(asFeed = false) {
             return stat.isFile();
         })
         .map((file) => getPost(file, postDir, asFeed))
+        .filter((item) => !item?.draft)
         .sort((a, b) => b.date.time - a.date.time);
 }
 
@@ -66,6 +68,7 @@ function getPost(file: string, postDir: string, asFeed = false): Post {
     });
     const post: Post = {
         title: data.title,
+        draft: data.draft || false,
         href: `/posts/${file.replace(/\.md$/, ".html")}`,
         date: formatDate(data.date),
         tags: data.tags?.split(", ") || [],
